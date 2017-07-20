@@ -1,0 +1,26 @@
+{
+  "name": "media-playback-hotkey",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "npm run rebuild",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rebuild": "npm rebuild --runtime=electron --target=1.6.11 --disturl=https://atom.io/download/atom-shell --abi=51",
+    "clean-dist": "rm -rf ./dist/*",
+    "pack-win": "npm run rebuild && npm run clean-dist && electron-packager . --asar --out ./dist/ && cp -r ./static  ./dist/media-playback-hotkey-win32-x64/static && rm -rf ./media-playback-hotkey-win32-x64"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Marsu",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.6.11",
+    "robotjs": "^0.4.7"
+  },
+  "devDependencies": {
+    "electron-packager": "^8.7.2"
+  }
+}
